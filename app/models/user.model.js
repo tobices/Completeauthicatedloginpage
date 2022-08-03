@@ -2,7 +2,12 @@ const mongoose = require("mongoose");
 const User = mongoose.model(
   "User",
   new mongoose.Schema({
-    username: String,
+    username: {
+      type: String,
+      required: true,
+      minlength: 5,
+      maxlength: 50,
+    },
     email: String,
     password: String,
     roles: [
